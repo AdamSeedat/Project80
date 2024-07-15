@@ -1,29 +1,49 @@
-name_of_the_array =[];
-
+var names_of_people = [];
+    
 function submit()
 {
+    var GuestName = document.getElementById("name1").value;
+	// use the push function as - names_of_people.push(GuestName);
+	console.log(GuestName);    
+    console.log(names_of_people);
+    var lenght_of_name = names_of_people.length;
+    console.log(lenght_of_name);
+	document.getElementById("display_name").innerHTML=names_of_people.push(GuestName);
+   }
 
-    var name_1 = document.getElementById("name_of_the_student_1").value
-    var name_2 = document.getElementById("name_of_the_student_2").value
-    var name_3 = document.getElementById("name_of_the_student_3").value
-    var name_4 = document.getElementById("name_of_the_student_4").value
 
-    name_of_the_array.push(name_1)
-    name_of_the_array.push(name_2)
-    name_of_the_array.push(name_3)
-    name_of_the_array.push(name_4)
 
-    console.log(name_of_the_array)
-
-    document.getElementById("display_name").innerHTML = name_of_the_array
-    document.getElementById("submit_button").style.display = "none";
-    document.getElementById("sort_button").style.display = "inline-block";
- 
+function show()
+{
+	var i= names_of_people.join("<br>");
+	console.log(names_of_people);
+	document.getElementById("p1").innerHTML=i.toString();
+	document.getElementById("sort_button").style.display="block";
+	
 }
 
+
 function sorting()
+	{
+		names_of_people.sort           // add the sort function here
+		// .sort();
+		var i= names_of_people.join("<br>");
+		console.log(names_of_people);		
+		document.getElementById("sorted").innerHTML=i.toString();
+		}
+
+
+function searching()
 {
-    name_of_the_array.sort();
-    console.log(name_of_the_array)
-    document.getElementById("display_name").innerHTML = name_of_the_array
+	var s= document.getElementById("s1").value;
+	var found=0;
+	var j;
+	for(j=0; j<names_of_people.length; j++)
+		{
+			if(s==names_of_people[j]){
+				found=found+1;
+			}	
+		}
+	document.getElementById("p2").innerHTML="name found "+found+" time/s";
+	console.log("found name "+found+" time/s");
 }
